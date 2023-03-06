@@ -70,10 +70,30 @@ def main():
     file1 = KeepToSimplenote()
     
     dir_list = os.listdir("keepNotes")
+    note_counter = 0
+    
     for i in dir_list:
         if i.endswith("json"):
+            note_counter = note_counter + 1
             print(i)
             file1.noteToFile("keepNotes/"+i)
+    
+    # number of notes
+    
+    #check number of files created vs keepNotes
+    newly_created_note_list = os.listdir(".")
+    
+    #number of created notes
+    cr_note_counter = 0
+    for i in newly_created_note_list:
+        if i.endswith("txt"):
+            cr_note_counter = cr_note_counter + 1
+    
+    # Created notes vs original notes
+    print("original_keep_notes:",note_counter)
+    print("created_notes:",cr_note_counter)
+    print("missing notes",str(note_counter - cr_note_counter))
+    
     
 if __name__ == "__main__":
     main()
