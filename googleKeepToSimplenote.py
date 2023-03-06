@@ -38,22 +38,22 @@ class KeepToSimplenote:
         #print all note categories
         try:
             for i in fileContextDict["labels"]:
-                the_note_categories = the_note_categories + i["name"] + ":::" 
+                the_note_categories = the_note_categories + i["name"] + ";" 
         except:
             the_note_categories = "nolabels"
             
-        ALL_FILE_STRING+=NEW_LINE+"##########"
+        ALL_FILE_STRING+=NEW_LINE+"---"
+        ALL_FILE_STRING+=NEW_LINE+"notetitle::"+the_title
+        ALL_FILE_STRING+=NEW_LINE+"timecreated::"+str(time_created)
+        ALL_FILE_STRING+=NEW_LINE+"timeedited::"+str(time_edited)
+        ALL_FILE_STRING+=NEW_LINE+"categories::"+the_note_categories
+        ALL_FILE_STRING+=NEW_LINE+"---"
+        ALL_FILE_STRING+=NEW_LINE
+        ALL_FILE_STRING+=NEW_LINE+"##################"
         ALL_FILE_STRING+=NEW_LINE+the_title
-        ALL_FILE_STRING+=NEW_LINE+"##########"
-        ALL_FILE_STRING+=NEW_LINE+str(time_created)
-        ALL_FILE_STRING+=NEW_LINE+str(time_edited)
-        ALL_FILE_STRING+=NEW_LINE+"##########"
-        ALL_FILE_STRING+=NEW_LINE+the_note_categories
-        ALL_FILE_STRING+=NEW_LINE+"##########"
-        ALL_FILE_STRING+=NEW_LINE+"##########"
-        ALL_FILE_STRING+=NEW_LINE+"##########"
+        ALL_FILE_STRING+=NEW_LINE+"##################"
+        ALL_FILE_STRING+=NEW_LINE
         ALL_FILE_STRING+=NEW_LINE+the_text
-        ALL_FILE_STRING+=NEW_LINE+"##########"
         
         return ALL_FILE_STRING,the_title
         
